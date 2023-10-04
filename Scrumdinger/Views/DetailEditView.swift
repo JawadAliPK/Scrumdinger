@@ -7,11 +7,10 @@
 
 import SwiftUI
 
-
 struct DetailEditView: View {
     @Binding var scrum: DailyScrum
     @State private var newAttendeeName = ""
-    
+
     var body: some View {
         Form {
             Section(header: Text("Meeting Info")) {
@@ -26,7 +25,6 @@ struct DetailEditView: View {
                         .accessibilityHidden(true)
                 }
                 ThemePicker(selection: $scrum.theme)
-
             }
             Section(header: Text("Attendees")) {
                 ForEach(scrum.attendees) { attendee in
@@ -45,6 +43,7 @@ struct DetailEditView: View {
                         }
                     }) {
                         Image(systemName: "plus.circle.fill")
+                            .accessibilityLabel("Add attendee")
                     }
                     .disabled(newAttendeeName.isEmpty)
                 }
@@ -53,6 +52,8 @@ struct DetailEditView: View {
     }
 }
 
-#Preview {
-    DetailEditView(scrum: .constant(DailyScrum.sampleData[0]))
+struct DetailEditView_Previews: PreviewProvider {
+    static var previews: some View {
+        DetailEditView(scrum: .constant(DailyScrum.sampleData[0]))
+    }
 }

@@ -15,14 +15,14 @@ struct ThemePicker: View {
             ForEach(Theme.allCases) { theme in
                 ThemeView(theme: theme)
                     .tag(theme)
-                
             }
         }
         .pickerStyle(.navigationLink)
-
     }
 }
 
-#Preview {
-    ThemePicker(selection: .constant(.periwinkle))
+struct ThemePicker_Previews: PreviewProvider {
+    static var previews: some View {
+        ThemePicker(selection: .constant(.periwinkle))
+    }
 }

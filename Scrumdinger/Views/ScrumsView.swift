@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ScrumsView: View {
     @Binding var scrums: [DailyScrum]
-
+  
     var body: some View {
         NavigationStack {
             List($scrums) { $scrum in
